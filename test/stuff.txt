@@ -1,0 +1,67 @@
+void serial_print_task(void *pvParameters) {
+    while(1) {
+        printf(">");
+        printf("RAW:");
+        printf("%f", sensor_raw_received);
+        printf("\r\n");
+        printf(">");
+        printf("OFFSET:");
+        printf("%f", sensor_offset);
+        printf("\r\n");
+        printf(">");
+        printf("FITERED:");
+        printf("%f", sensor_filtered);
+        printf("\r\n");
+        printf(">");
+        printf("upper:");
+        printf("%f", upper);
+        printf("\r\n");
+        printf(">");
+        printf("lower:");
+        printf("%f", lower);
+        printf("\r\n");
+        printf(">");
+        printf("bpm:");
+        printf("%d", bpm);
+        printf("\r\n");
+        printf(">");
+        printf("count:");
+        printf("%d", beat_count);
+        printf("\r\n");
+        vTaskDelay(10/portTICK_PERIOD_MS);
+    }   
+}
+
+void serial_print_task_2(void *pvParameters) {
+    while(1) {
+        printf(">");
+        printf("FITERED:");
+        printf("%f", sensor_filtered);
+        printf("\r\n");
+        printf(">");
+        printf("t_upper:");
+        printf("%f", upper);
+        printf("\r\n");
+        printf(">");
+        printf("t_lower:");
+        printf("%f", lower);
+        printf("\r\n");
+        printf(">");
+        printf("count:");
+        printf("%d", bpm);
+        printf("\r\n");
+        vTaskDelay(50/portTICK_PERIOD_MS);
+    }   
+}
+
+/*
+static float coefficients_cutoff_at_05_8[3][5] = {{2.23775228e-06f, 4.47550457e-06f, 2.23775228e-06f, -1.97693169f, 0.977817352f}, 
+{1.0f, 0.0f, -1.0f, -1.97379693f, 0.973952795f}, 
+{1.0f, -2.0f, 1.0f, -1.99602456f,  0.996052349f}};
+static float coefficients_cutoff_at_05_10[3][5] = {{ 2.28069884e-05f, 4.56139768e-05f, 2.28069884e-05f, -1.94453774f,  0.948145083f},
+ { 1.0f, 0.0f, -1.0f, -1.94349625f, 0.943803280f},
+ { 1.0f, -2.0f, 1.0f, -1.99544198f, 0.995468849f}};
+static float coefficients_cutoff_at_03_15[3][5] = {{ 8.99914733e-05f, 1.79982947e-04f, 8.99914733e-05f, -1.90518526f, 0.913518244f}, 
+{1.0f, 0.0f, -1.0f, -1.91148437f, 0.911654291f}, 
+{1.0f,-2.0f, 1.0f, -1.99815299f, 0.998156611f}};
+*/

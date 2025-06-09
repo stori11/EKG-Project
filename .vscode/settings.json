@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "esp_task_wdt.h": "c",
+        "arduino.h": "c",
+        "pulse.h": "c",
+        "lcd.h": "c"
+    }
+}
